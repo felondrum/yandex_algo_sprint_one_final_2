@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/** @github <a href="https://github.com/felondrum/yandex_algo_sprint_one_final_2">...</a> */
 public class Main {
   public static void main(String[] args) {
     makeTest(); //comment row to skip tests
@@ -21,16 +22,16 @@ public class Main {
     int valAsNumber;
     List<Integer> resultList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0);
     for (List<String> fieldRow : fieldRows) {
-      for (int i = 0; i<fieldRow.size(); i++) {
+      for (String s : fieldRow) {
         try {
-          valAsNumber = Integer.parseInt(fieldRow.get(i));
+          valAsNumber = Integer.parseInt(s);
           Integer modifiedValue = resultList.get(valAsNumber - 1) + 1;
           int searchIndex = valAsNumber - 1;
           resultList.set(searchIndex, modifiedValue);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
 //          System.out.println("Value " + fieldRow.get(i) + " in row is not a number");
 //          if not a number just skipping
-        } catch(ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
           System.out.println("Array size or index problem, probably");
         } catch (Exception e) {
           System.out.println("Undocumented problem. Text: " + e.getLocalizedMessage());
